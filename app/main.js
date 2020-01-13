@@ -1,55 +1,74 @@
-import 'fluent-intl-polyfill';
-import app from './routes';
-import locale from '../common/locales';
-import fileManager from './fileManager';
+/* global DEFAULTS LIMITS PREFS */
+import 'core-js';
+import 'fast-text-encoding'; // MS Edge support
+import 'intl-pluralrules';
+import choo from 'choo';
+import nanotiming from 'nanotiming';
+import routes from './routes';
+import getCapabilities from './capabilities';
+import controller from './controller';
 import dragManager from './dragManager';
-import { canHasSend } from './utils';
-import assets from '../common/assets';
+import pasteManager from './pasteManager';
 import storage from './storage';
 import metrics from './metrics';
 import experiments from './experiments';
-import Raven from 'raven-js';
+import * as Sentry from '@sentry/browser';
+import './main.css';
+import User from './user';
+import { getTranslator } from './locale';
+import Archive from './archive';
+import { setTranslate, locale } from './utils';
 
-if (navigator.doNotTrack !== '1' && window.RAVEN_CONFIG) {
-  Raven.config(window.SENTRY_ID, window.RAVEN_CONFIG).install();
+if (navigator.doNotTrack !== '1' && window.SENTRY_CONFIG) {
+  Sentry.init(window.SENTRY_CONFIG);
 }
 
-app.use((state, emitter) => {
-  state.transfer = null;
-  state.fileInfo = null;
-  state.translate = locale.getTranslator();
-  state.storage = storage;
-  state.raven = Raven;
-  window.appState = state;
-  emitter.on('DOMContentLoaded', async function checkSupport() {
-    let unsupportedReason = null;
-    if (
-      // Firefox < 50
-      /firefox/i.test(navigator.userAgent) &&
-      parseInt(navigator.userAgent.match(/firefox\/*([^\n\r]*)\./i)[1], 10) < 50
-    ) {
-      unsupportedReason = 'outdated';
-    }
-    if (/edge\/\d+/i.test(navigator.userAgent)) {
-      unsupportedReason = 'edge';
-    }
-    const ok = await canHasSend(assets.get('cryptofill.js'));
-    if (!ok) {
-      unsupportedReason = /firefox/i.test(navigator.userAgent)
-        ? 'outdated'
-        : 'gcm';
-    }
-    if (unsupportedReason) {
-      setTimeout(() =>
-        emitter.emit('replaceState', `/unsupported/${unsupportedReason}`)
-      );
-    }
-  });
-});
+if (process.env.NODE_ENV === 'production') {
+  nanotiming.disabled = true;
+}
 
-app.use(metrics);
-app.use(fileManager);
-app.use(dragManager);
-app.use(experiments);
+(async function start() {
+  const capabilities = await getCapabilities();
+  if (
+    !capabilities.crypto &&
+    window.location.pathname !== '/unsupported/crypto'
+  ) {
+    return window.location.assign('/unsupported/crypto');
+  }
+  if (capabilities.serviceWorker) {
+    try {
+      await navigator.serviceWorker.register('/serviceWorker.js');
+      await navigator.serviceWorker.ready;
+    } catch (e) {
+      // continue but disable streaming downloads
+      capabilities.streamDownload = false;
+    }
+  }
 
-app.mount('body');
+  const translate = await getTranslator(locale());
+  setTranslate(translate);
+  // eslint-disable-next-line require-atomic-updates
+  window.initialState = {
+    LIMITS,
+    DEFAULTS,
+    PREFS,
+    archive: new Archive([], DEFAULTS.EXPIRE_SECONDS),
+    capabilities,
+    translate,
+    storage,
+    sentry: Sentry,
+    user: new User(storage, LIMITS, window.AUTH_CONFIG),
+    transfer: null,
+    fileInfo: null
+  };
+
+  const app = routes(choo({ hash: true }));
+  // eslint-disable-next-line require-atomic-updates
+  window.app = app;
+  app.use(experiments);
+  app.use(metrics);
+  app.use(controller);
+  app.use(dragManager);
+  app.use(pasteManager);
+  app.mount('body');
+})();

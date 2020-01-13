@@ -1,6 +1,6 @@
 ## How big of a file can I transfer with Firefox Send?
 
-There is a 2GB file size limit built in to Send, however, in practice you may
+There is a 2.5GB file size limit built in to Send(1GB for non-signed in users), however, in practice you may
 be unable to send files that large.  Send encrypts and decrypts the files in
 the browser which is great for security but will tax your system resources.  In
 particular you can expect to see your memory usage go up by at least the size
@@ -31,12 +31,11 @@ Since Send is an open source project, you can see all of the cool ways we use Ja
 ## How long are files available for?
 
 Files are available to be downloaded for 24 hours, after which they are removed
-from the server.  They are also removed immediately after a download completes.
+from the server.  They are also removed immediately once the download limit is reached.
 
 ## Can a file be downloaded more than once?
 
-Not currently, but we're considering multiple download support in a future
-release.
+Yes, once a file is submitted to Send you can select the download limit.
 
 
 *Disclaimer: Send is an experiment and under active development.  The answers

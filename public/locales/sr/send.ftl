@@ -1,117 +1,164 @@
-// Firefox Send is a brand name and should not be localized.
+# Firefox Send is a brand name and should not be localized.
 title = Firefox Send
-siteSubtitle = веб експеримент
 siteFeedback = Повратне информације
-uploadPageHeader = Приватно и шифровано дељење датотека
-uploadPageExplainer = Шаљите датотеке преко безбедне, приватне и шифроване везе која самостално истиче да ваше ствари не би остале на нету заувек.
-uploadPageLearnMore = Сазнајте више
-uploadPageDropMessage = Превуците ваше датотеке овде да бисте кренули са отпремањем
-uploadPageSizeMessage = За бољи рад предлажемо да датотека не буде већа од 1GB
-uploadPageBrowseButton = Изаберите датотеку на рачунару
-uploadPageBrowseButton1 = Изаберите датотеку за отпремање
-uploadPageMultipleFilesAlert = Отпремање фасцикли или више датотека тренутно није подржано.
-uploadPageBrowseButtonTitle = Отпреми датотеку
-uploadingPageProgress = Отпремам { $filename } ({ $size })
 importingFile = Увозим…
-verifyingFile = Потврђујем…
 encryptingFile = Шифрујем…
 decryptingFile = Дешифрујем…
-notifyUploadDone = Ваше отпремање је завршено.
-uploadingPageMessage = Након што се ваша датотека отпреми, моћи ћете да подесите опције истека.
-uploadingPageCancel = Откажи отпремање
-uploadCancelNotification = Ваше отпремање је отказано.
-uploadingPageLargeFileMessage = Ово је велика датотека и отпремање може потрајати. Будите стрпљиви!
-uploadingFileNotification = Обавести ме када се отпремање заврши.
-uploadSuccessConfirmHeader = Спреман за слање
-uploadSvgAlt = Отпреми
-uploadSuccessTimingHeader = Веза ка вашој датотеци ће истећи након једног преузимања или након 24 сата.
-expireInfo = Веза ка вашој датотеци ће истећи након { $downloadCount } или { $timespan }.
-downloadCount = { $num ->
+downloadCount =
+    { $num ->
         [one] преузимања
         [few] преузимања
        *[other] преузимања
     }
-timespanHours = { $num ->
+timespanHours =
+    { $num ->
         [one] сата
         [few] сата
        *[other] сати
     }
-copyUrlFormLabelWithName = Ископирајте и поделите везу да бисте послали вашу датотеку: { $filename }
-copyUrlFormButton = Копирај у оставу
 copiedUrl = Ископирано!
-deleteFileButton = Обриши датотеку
-sendAnotherFileLink = Пошаљи другу датотеку
-// Alternative text used on the download link/button (indicates an action).
-downloadAltText = Преузми
-downloadsFileList = Преузимања
-// Used as header in a column indicating the amount of time left before a
-// download link expires (e.g. "10h 5m")
-timeFileList = Време
-// Used as header in a column indicating the number of times a file has been
-// downloaded
-downloadFileName = Преузимање датотеке { $filename }
-downloadFileSize = ({ $size })
-unlockInputLabel = Унесите лозинку
 unlockInputPlaceholder = Лозинка
 unlockButtonLabel = Откључај
-downloadFileTitle = Преузми шифровану датотеку
-// Firefox Send is a brand name and should not be localized.
-downloadMessage = Ваш пријатељ вам је послао датотеку преко услуге Firefox Send која вам омогућава да делите датотеке преко безбедне, приватне и шифроване везе која самостално истиче да ваше ствари не би остале на нету заувек.
-// Text and title used on the download link/button (indicates an action).
 downloadButtonLabel = Преузми
-downloadNotification = Ваше преузимање је завршено.
 downloadFinish = Преузимање је завршено.
-// This message is displayed when uploading or downloading a file, e.g. "(1,3 MB of 10 MB)".
 fileSizeProgress = ({ $partialSize } од { $totalSize })
-// Firefox Send is a brand name and should not be localized.
 sendYourFilesLink = Испробајте Firefox Send
-downloadingPageProgress = Преузимам датотеку { $filename } ({ $size })
-downloadingPageMessage = Оставите овај језичак отвореним док не добавимо вашу датотеку и док је не дешифрујемо.
-errorAltText = Грешка при отпремању
 errorPageHeader = Нешто је пошло наопако!
-errorPageMessage = Догодила се грешка приликом отпремања датотеке.
-errorPageLink = Пошаљи другу датотеку
 fileTooBig = Та датотека је превелика за отпремање. Треба да буде мања од { $size }.
 linkExpiredAlt = Веза је истекла
-expiredPageHeader = Веза је или истекла, или никада није ни постојала!
 notSupportedHeader = Ваш прегледач није подржан.
-// Firefox Send is a brand name and should not be localized.
-notSupportedDetail = Нажалост, овај прегледач не подржава веб технологију која омогућава Firefox Send. Мораћете да пробате са другим прегледачем. Ми предлажемо Firefox!
 notSupportedLink = Зашто мој прегледач није подржан?
 notSupportedOutdatedDetail = Нажалост, ово издање Firefox-a не подржава веб технологију која омогућава Firefox Send. Мораћете да ажурирате ваш прегледач.
 updateFirefox = Ажурирај Firefox
-downloadFirefoxButtonSub = Бесплатно преузимање
-uploadedFile = Датотека
-copyFileList = URL за копирање
-// expiryFileList is used as a column header
-expiryFileList = Истиче за
-deleteFileList = Брисање
-nevermindButton = Занемари
-legalHeader = Услови и приватност
-legalNoticeTestPilot = Firefox Send је тренутно Тест Пилот експеримент и подложан је <a>условима коришћења</a> Тест Пилота и <a>обавештењем о приватности</a>. Можете сазнати више о овом експерименту и о његовом сакупљању података <a>овде</a>.
-legalNoticeMozilla = Коришћење Firefox Send веб сајта подлеже Mozilla-ином <a>обавештењу о приватности на веб сајтовима</a> и <a>условима коришћења веб сајтова</a>.
-deletePopupText = Обрисати ову датотеку?
-deletePopupYes = Да
 deletePopupCancel = Откажи
 deleteButtonHover = Обриши
-copyUrlHover = Ископирај URL
 footerLinkLegal = Правни подаци
-// Test Pilot is a proper name and should not be localized.
-footerLinkAbout = О Тест Пилоту
 footerLinkPrivacy = Приватност
-footerLinkTerms = Услови
 footerLinkCookies = Колачићи
-requirePasswordCheckbox = Захтевај лозинку да би преузео ову датотеку
-addPasswordButton = Додај лозинку
-changePasswordButton = Промени
 passwordTryAgain = Нетачна лозинка. Пробајте поново.
-// This label is followed by the password needed to download a file
-passwordResult = Лозинка: { $password }
-reportIPInfringement = Пријавите IP прекршај
 javascriptRequired = За Firefox Send је потребан JavaScript
 whyJavascript = Зашто је потребан JavaScript за Firefox Send?
 enableJavascript = Омогућите JavaScript и пробајте поново.
-// A short representation of a countdown timer containing the number of hours and minutes remaining as digits, example "13h 47m"
+# A short representation of a countdown timer containing the number of hours and minutes remaining as digits, example "13h 47m"
 expiresHoursMinutes = { $hours }ч { $minutes }м
-// A short representation of a countdown timer containing the number of minutes remaining as digits, example "56m"
+# A short representation of a countdown timer containing the number of minutes remaining as digits, example "56m"
 expiresMinutes = { $minutes }м
+# A short status message shown when the user enters a long password
+maxPasswordLength = Највећа дужина лозинке: { $length }
+# A short status message shown when there was an error setting the password
+passwordSetError = Не можемо поставити ову лозинку
+
+## Send version 2 strings
+
+# Firefox Send, Send, Firefox, Mozilla are proper names and should not be localized
+-send-brand = Firefox Send
+-send-short-brand = Send
+-firefox = Firefox
+-mozilla = Mozilla
+introTitle = Једноставно и приватно дељење датотека
+introDescription = { -send-brand } вам дозвољава да делите датотеке које су шифроване с краја на крај преко везе која самостално истиче. Тако да можете приватно делити ваше ствари које неће остати на вебу заувек.
+notifyUploadEncryptDone = Ваша датотека је шифрована и спремна за слање
+# downloadCount is from the downloadCount string and timespan is a timespanMinutes string. ex. 'Expires after 2 downloads or 25 minutes'
+archiveExpiryInfo = Истиче након { $downloadCount } или { $timespan }
+timespanMinutes =
+    { $num ->
+        [one] { $num } минут
+        [few] { $num } минута
+       *[other] { $num } минута
+    }
+timespanDays =
+    { $num ->
+        [one] { $num } дан
+        [few] { $num } дана
+       *[other] { $num } дана
+    }
+timespanWeeks =
+    { $num ->
+        [one] { $num } недеља
+        [few] { $num } недеље
+       *[other] { $num } недеља
+    }
+fileCount =
+    { $num ->
+        [one] { $num } датотека
+        [few] { $num } датотеке
+       *[other] { $num } датотека
+    }
+# byte abbreviation
+bytes = B
+# kibibyte abbreviation
+kb = KB
+# mebibyte abbreviation
+mb = MB
+# gibibyte abbreviation
+gb = GB
+# localized number and byte abbreviation. example "2.5MB"
+fileSize = { $num }{ $units }
+# $size is the size of the file, displayed using the fileSize message as format (e.g. "2.5MB")
+totalSize = Укупна величина: { $size }
+# the next line after the colon contains a file name
+copyLinkDescription = Копирајте везу да бисте поделили вашу датотеку:
+copyLinkButton = Копирај везу
+downloadTitle = Преузми датотеке
+downloadDescription = Ова датотека је подељена преко услуге { -send-brand } која омогућава шифровање с краја на крај преко везе која самостално истиче.
+trySendDescription = Пробајте { -send-brand } за једноставно и безбедно дељење датотека.
+# count will always be > 10
+tooManyFiles =
+    { $count ->
+        [one] Можете отпремити само { $count } датотеку истовремено.
+        [few] Можете отпремити само { $count } датотеке истовремено.
+       *[other] Можете отпремити само { $count } датотека истовремено.
+    }
+# count will always be > 10
+tooManyArchives =
+    { $count ->
+        [one] Дозвољена је само { $count } архива.
+        [few] Дозвољене су само { $count } архиве.
+       *[other] Дозвољено је само { $count } архива.
+    }
+expiredTitle = Ова веза је истекла.
+notSupportedDescription = { -send-brand } неће радити у овом прегледачу. { -send-short-brand } најбоље ради са последњим издањем прегледача { -firefox } и радиће са тренутним издањима већине других прегледача.
+downloadFirefox = Преузми { -firefox }
+legalTitle = Политика приватности услуге { -send-short-brand }
+legalDateStamp = Издање 1.0, датум објављивања 12. март 2019. године
+# A short representation of a countdown timer containing the number of days, hours, and minutes remaining as digits, example "2d 11h 56m"
+expiresDaysHoursMinutes = { $days }д { $hours }ч { $minutes }м
+addFilesButton = Изаберите датотеке за отпремање
+uploadButton = Отпреми
+# the first part of the string 'Drag and drop files or click to send up to 1GB'
+dragAndDropFiles = Превуците и пустите датотеке
+# the second part of the string 'Drag and drop files or click to send up to 1GB'
+# $size is the size of the file, displayed using the fileSize message as format (e.g. "2.5MB")
+orClickWithSize = или кликните за слање садржаја великог до { $size }
+addPassword = Заштитите лозинком
+emailPlaceholder = Унесите вашу е-адресу
+# $size is the size of the file, displayed using the fileSize message as format (e.g. "2.5MB")
+signInSizeBump = Пријавите се да пошаљете садржај до { $size }
+signInOnlyButton = Пријавите се
+accountBenefitTitle = Направите { -firefox } налог или се пријавите
+# $size is the size of the file, displayed using the fileSize message as format (e.g. "2.5MB")
+accountBenefitLargeFiles = Поделите датотеке велике до { $size }
+accountBenefitDownloadCount = Поделите датотеке са више особа
+accountBenefitTimeLimit =
+    { $count ->
+        [one] Остави везе активним највише { $count } дан
+        [few] Остави везе активним највише { $count } дана
+       *[other] Остави везе активним највише { $count } дана
+    }
+accountBenefitSync = Управљајте подељеним датотекама са било ког уређаја
+accountBenefitMoz = Сазнајте више о другим { -mozilla }-иним услугама
+signOut = Одјава
+okButton = У реду
+downloadingTitle = Преузимам
+noStreamsWarning = Овај прегледач можда неће моћи да дешифрује оволико велику датотеку.
+noStreamsOptionCopy = Копирај везу за отварање у другом прегледачу
+noStreamsOptionFirefox = Пробајте наш омиљени прегледач
+noStreamsOptionDownload = Наставите у овом прегледачу
+downloadFirefoxPromo = { -send-short-brand } вам је омогућен захваљући потпуно новом програму { -firefox }.
+# the next line after the colon contains a file name
+shareLinkDescription = Поделите везу до датотеке:
+shareLinkButton = Поделите везу
+# $name is the name of the file
+shareMessage = Преузмите „{ $name }“ помоћу програма { -send-brand }:  једноставно и безбедно дељење датотека
+trailheadPromo = Постоји начин да заштитите вашу приватност. Придружите се Firefox-у.
+learnMore = Сазнајте више.

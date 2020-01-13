@@ -2,11 +2,13 @@ const crypto = require('crypto');
 const storage = require('../storage');
 const config = require('../config');
 const mozlog = require('../log');
+const Limiter = require('../limiter');
+const { encryptedSize } = require('../../app/utils');
 
 const log = mozlog('send.upload');
 
-module.exports = function(req, res) {
-  const newId = crypto.randomBytes(5).toString('hex');
+module.exports = async function(req, res) {
+  const newId = crypto.randomBytes(8).toString('hex');
   const metadata = req.header('X-File-Metadata');
   const auth = req.header('Authorization');
   if (!metadata || !auth) {
@@ -14,42 +16,31 @@ module.exports = function(req, res) {
   }
   const owner = crypto.randomBytes(10).toString('hex');
   const meta = {
-    dlimit: 1,
-    dl: 0,
     owner,
-    delete: owner, // delete is deprecated
     metadata,
-    pwd: 0,
     auth: auth.split(' ')[1],
     nonce: crypto.randomBytes(16).toString('base64')
   };
-  req.pipe(req.busboy);
 
-  req.busboy.on('file', async (fieldname, file) => {
-    try {
-      await storage.set(newId, file, meta);
-      const protocol = config.env === 'production' ? 'https' : req.protocol;
-      const url = `${protocol}://${req.get('host')}/download/${newId}/`;
-      res.set('WWW-Authenticate', `send-v1 ${meta.nonce}`);
-      res.json({
-        url,
-        owner: meta.owner,
-        id: newId
-      });
-    } catch (e) {
-      log.error('upload', e);
-      if (e.message === 'limit') {
-        return res.sendStatus(413);
-      }
-      res.sendStatus(500);
+  try {
+    const limiter = new Limiter(encryptedSize(config.max_file_size));
+    const fileStream = req.pipe(limiter);
+    //this hasn't been updated to expiration time setting yet
+    //if you want to fallback to this code add this
+    await storage.set(newId, fileStream, meta, config.default_expire_seconds);
+    const protocol = config.env === 'production' ? 'https' : req.protocol;
+    const url = `${protocol}://${req.get('host')}/download/${newId}/`;
+    res.set('WWW-Authenticate', `send-v1 ${meta.nonce}`);
+    res.json({
+      url,
+      owner: meta.owner,
+      id: newId
+    });
+  } catch (e) {
+    if (e.message === 'limit') {
+      return res.sendStatus(413);
     }
-  });
-
-  req.on('close', async err => {
-    try {
-      await storage.forceDelete(newId);
-    } catch (e) {
-      log.info('DeleteError:', newId);
-    }
-  });
+    log.error('upload', e);
+    res.sendStatus(500);
+  }
 };

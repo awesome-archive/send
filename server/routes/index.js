@@ -1,41 +1,20 @@
-const busboy = require('connect-busboy');
-const helmet = require('helmet');
+const crypto = require('crypto');
 const bodyParser = require('body-parser');
-const languages = require('../languages');
+const helmet = require('helmet');
+const uaparser = require('ua-parser-js');
 const storage = require('../storage');
 const config = require('../config');
+const auth = require('../middleware/auth');
+const language = require('../middleware/language');
 const pages = require('./pages');
-const { negotiateLanguages } = require('fluent-langneg');
+const filelist = require('./filelist');
+const clientConstants = require('../clientConstants');
+
 const IS_DEV = config.env === 'development';
-const acceptLanguages = /(([a-zA-Z]+(-[a-zA-Z0-9]+){0,2})|\*)(;q=[0-1](\.[0-9]+)?)?/g;
-const langData = require('cldr-core/supplemental/likelySubtags.json');
-const idregx = '([0-9a-fA-F]{10})';
+const ID_REGEX = '([0-9a-fA-F]{10,16})';
 
 module.exports = function(app) {
-  app.use(function(req, res, next) {
-    const header = req.headers['accept-language'] || 'en-US';
-    if (header.length > 255) {
-      req.language = 'en-US';
-      return next();
-    }
-    const langs = header.replace(/\s/g, '').match(acceptLanguages);
-    const preferred = langs
-      .map(l => {
-        const parts = l.split(';');
-        return {
-          locale: parts[0],
-          q: parts[1] ? parseFloat(parts[1].split('=')[1]) : 1
-        };
-      })
-      .sort((a, b) => b.q - a.q)
-      .map(x => x.locale);
-    req.language = negotiateLanguages(preferred, languages, {
-      strategy: 'lookup',
-      likelySubtags: langData.supplemental.likelySubtags,
-      defaultLocale: 'en-US'
-    })[0];
-    next();
-  });
+  app.set('trust proxy', true);
   app.use(helmet());
   app.use(
     helmet.hsts({
@@ -43,6 +22,14 @@ module.exports = function(app) {
       force: !IS_DEV
     })
   );
+  app.use(function(req, res, next) {
+    req.ua = uaparser(req.header('user-agent'));
+    next();
+  });
+  app.use(function(req, res, next) {
+    req.cspNonce = crypto.randomBytes(16).toString('hex');
+    next();
+  });
   if (!IS_DEV) {
     app.use(
       helmet.contentSecurityPolicy({
@@ -50,17 +37,26 @@ module.exports = function(app) {
           defaultSrc: ["'self'"],
           connectSrc: [
             "'self'",
-            'https://sentry.prod.mozaws.net',
-            'https://www.google-analytics.com'
+            'wss://*.dev.lcip.org',
+            'wss://*.send.nonprod.cloudops.mozgcp.net',
+            'wss://send.firefox.com',
+            'https://*.dev.lcip.org',
+            'https://accounts.firefox.com',
+            'https://*.accounts.firefox.com',
+            'https://sentry.prod.mozaws.net'
           ],
-          imgSrc: ["'self'", 'https://www.google-analytics.com'],
-          scriptSrc: ["'self'"],
-          styleSrc: [
+          imgSrc: [
             "'self'",
-            "'unsafe-inline'",
-            'https://code.cdn.mozilla.net'
+            'https://*.dev.lcip.org',
+            'https://firefoxusercontent.com',
+            'https://secure.gravatar.com'
           ],
-          fontSrc: ["'self'", 'https://code.cdn.mozilla.net'],
+          scriptSrc: [
+            "'self'",
+            function(req) {
+              return `'nonce-${req.cspNonce}'`;
+            }
+          ],
           formAction: ["'none'"],
           frameAncestors: ["'none'"],
           objectSrc: ["'none'"],
@@ -69,36 +65,50 @@ module.exports = function(app) {
       })
     );
   }
-  app.use(
-    busboy({
-      limits: {
-        fileSize: config.max_file_size
-      }
-    })
-  );
   app.use(function(req, res, next) {
     res.set('Pragma', 'no-cache');
-    res.set('Cache-Control', 'no-cache');
+    res.set(
+      'Cache-Control',
+      'private, no-cache, no-store, must-revalidate, max-age=0'
+    );
     next();
   });
   app.use(bodyParser.json());
-  app.get('/', pages.index);
-  app.get('/legal', pages.legal);
-  app.get('/jsconfig.js', require('./jsconfig'));
-  app.get(`/share/:id${idregx}`, pages.blank);
-  app.get(`/download/:id${idregx}`, pages.download);
-  app.get('/completed', pages.blank);
-  app.get('/unsupported/:reason', pages.unsupported);
-  app.get(`/api/download/:id${idregx}`, require('./download'));
-  app.get(`/api/exists/:id${idregx}`, require('./exists'));
-  app.get(`/api/metadata/:id${idregx}`, require('./metadata'));
-  app.post('/api/upload', require('./upload'));
-  app.post(`/api/delete/:id${idregx}`, require('./delete'));
-  app.post(`/api/password/:id${idregx}`, require('./password'));
-  app.post(`/api/params/:id${idregx}`, require('./params'));
-  app.post(`/api/info/:id${idregx}`, require('./info'));
-
+  app.use(bodyParser.text());
+  app.get('/', language, pages.index);
+  app.get('/config', function(req, res) {
+    res.json(clientConstants);
+  });
+  app.get('/error', language, pages.blank);
+  app.get('/oauth', language, pages.blank);
+  app.get('/legal', language, pages.legal);
+  app.get('/login', language, pages.index);
+  app.get('/app.webmanifest', language, require('./webmanifest'));
+  app.get(`/download/:id${ID_REGEX}`, language, pages.download);
+  app.get('/unsupported/:reason', language, pages.unsupported);
+  app.get(`/api/download/:id${ID_REGEX}`, auth.hmac, require('./download'));
+  app.get(
+    `/api/download/blob/:id${ID_REGEX}`,
+    auth.hmac,
+    require('./download')
+  );
+  app.get(`/api/exists/:id${ID_REGEX}`, require('./exists'));
+  app.get(`/api/metadata/:id${ID_REGEX}`, auth.hmac, require('./metadata'));
+  app.get('/api/filelist/:id([\\w-]{16})', auth.fxa, filelist.get);
+  app.post('/api/filelist/:id([\\w-]{16})', auth.fxa, filelist.post);
+  app.post('/api/upload', auth.fxa, require('./upload'));
+  app.post(`/api/delete/:id${ID_REGEX}`, auth.owner, require('./delete'));
+  app.post(`/api/password/:id${ID_REGEX}`, auth.owner, require('./password'));
+  app.post(
+    `/api/params/:id${ID_REGEX}`,
+    auth.owner,
+    auth.fxa,
+    require('./params')
+  );
+  app.post(`/api/info/:id${ID_REGEX}`, auth.owner, require('./info'));
+  app.post('/api/metrics', require('./metrics'));
   app.get('/__version__', function(req, res) {
+    // eslint-disable-next-line node/no-missing-require
     res.sendFile(require.resolve('../../dist/version.json'));
   });
 

@@ -1,115 +1,155 @@
-// Firefox Send is a brand name and should not be localized.
+# Firefox Send is a brand name and should not be localized.
 title = Firefox Send
-siteSubtitle = netteksperiment
 siteFeedback = Tilbakemelding
-uploadPageHeader = Privat, kryptert fildeling
-uploadPageExplainer = Send filer gjennom en sikker, privat og kryptert lenke som automatisk utløper, for å sikre at ting ikke forblir på nettet for alltid.
-uploadPageLearnMore = Les mer
-uploadPageDropMessage = Slipp din fil her for å starte opplastingen
-uploadPageSizeMessage = For den mest problemfrie bruken, er det best å holde filen under 1 GB
-uploadPageBrowseButton = Velg en fil på din datamaskin
-uploadPageBrowseButton1 = Velg en fil til å laste opp
-uploadPageMultipleFilesAlert = Opplasting av flere filer eller en mappe støttes ikke for øyeblikket.
-uploadPageBrowseButtonTitle = Last opp fil
-uploadingPageProgress = Laster opp { $filename } ({ $size })
 importingFile = Importerer…
-verifyingFile = Verifiserer...
 encryptingFile = Krypterer...
 decryptingFile = Dekrypterer...
-notifyUploadDone = Opplastingen din er ferdig.
-uploadingPageMessage = Når filopplastingen din er ferdig, kan du angi utløpsalternativer.
-uploadingPageCancel = Avbryt opplasting
-uploadCancelNotification = Din opplasting ble avbrutt
-uploadingPageLargeFileMessage = Denne filen er stor, og det kan ta litt tid å laste opp. Vent litt!
-uploadingFileNotification = Varsle meg når opplastingen er ferdig.
-uploadSuccessConfirmHeader = Klar til å sende
-uploadSvgAlt = Last opp
-uploadSuccessTimingHeader = Lenken til filen din utløper etter 1 nedlasting eller om 24 timer.
-expireInfo = Lenken til filen din vil gå ut etter { $downloadCount } eller { $timespan }.
-downloadCount = { $num ->
+downloadCount =
+    { $num ->
         [one] 1 nedlasting
        *[other] { $num } nedlastinger
     }
-timespanHours = { $num ->
+timespanHours =
+    { $num ->
         [one] 1 time
        *[other] { $num } timer
     }
-copyUrlFormLabelWithName = Kopier og del linken for å sende filen: { $filename }
-copyUrlFormButton = Kopier til utklippstavle
 copiedUrl = Kopiert!
-deleteFileButton = Slett fil
-sendAnotherFileLink = Send en annen fil
-// Alternative text used on the download link/button (indicates an action).
-downloadAltText = Last ned
-downloadsFileList = Nedlastinger
-// Used as header in a column indicating the amount of time left before a
-// download link expires (e.g. "10h 5m")
-timeFileList = Tid
-// Used as header in a column indicating the number of times a file has been
-// downloaded
-downloadFileName = Last ned { $filename }
-downloadFileSize = ({ $size })
-unlockInputLabel = Skriv inn passord
 unlockInputPlaceholder = Passord
 unlockButtonLabel = Lås opp
-downloadFileTitle = Last ned kryptert fil
-// Firefox Send is a brand name and should not be localized.
-downloadMessage = Din venn sender deg en fil med Firefox Send, en tjeneste som lar deg dele filer med en sikker, privat og kryptert lenke, som automatisk utløper, for å sikre at ting ikke forblir på nettet for alltid.
-// Text and title used on the download link/button (indicates an action).
 downloadButtonLabel = Last ned
-downloadNotification = Nedlastingen er fullført.
 downloadFinish = Nedlastingen er fullført.
-// This message is displayed when uploading or downloading a file, e.g. "(1,3 MB of 10 MB)".
 fileSizeProgress = ({ $partialSize } av { $totalSize })
-// Firefox Send is a brand name and should not be localized.
 sendYourFilesLink = Prøv Firefox Send
-downloadingPageProgress = Laster ned { $filename } ({ $size })
-downloadingPageMessage = La denne fanen være åpen mens vi henter filen og dekrypterer den.
-errorAltText = Opplastingsfeil
 errorPageHeader = Det oppstod en feil.
-errorPageMessage = Det har oppstått en feil under opplasting av filen.
-errorPageLink = Send en annen fil
 fileTooBig = Filen er for stor til å laste opp. Det må være mindre enn { $size }.
 linkExpiredAlt = Lenke utløpt
-expiredPageHeader = Denne lenken er utløpt eller har aldri eksistert i utgangspunktet!
 notSupportedHeader = Din nettleser er ikke støttet.
-// Firefox Send is a brand name and should not be localized.
-notSupportedDetail = Dessverre støtter denne nettleseren ikke webteknologien som driver Firefox Send. Du må prøve en annen nettleser. Vi anbefaler Firefox!
 notSupportedLink = Hvorfor er ikke nettleseren min støttet?
 notSupportedOutdatedDetail = Dessverre støtter ikke denne versjonen av Firefox netteknologien som driver Firefox Send. Du trenger å oppdatere nettleseren din.
 updateFirefox = Oppdater Firefox
-downloadFirefoxButtonSub = Gratis nedlasting
-uploadedFile = Fil
-copyFileList = Kopier URL
-// expiryFileList is used as a column header
-expiryFileList = Utløper om
-deleteFileList = Slett
-nevermindButton = Glem det
-legalHeader = Vilkår og personvern
-legalNoticeTestPilot = Firefox Send er for øyeblikket et Test Pilot-eksperiment, og er underlagt Test Pilots <a>tjenestevilkår</a> og <a>personvernbestemmelser</a>. Du kan lære mer om dette eksperimentet og datainnsamlingen <a>her</a>.
-legalNoticeMozilla = Bruk av Firefox Send-nettsiden er også underlagt Mozillas <a>personvernbestemmelser for nettsider</a> og <a>brukervilkår for nettsider</a>.
-deletePopupText = Slette denne filen?
-deletePopupYes = Ja
 deletePopupCancel = Avbryt
 deleteButtonHover = Slett
-copyUrlHover = Kopier URL
 footerLinkLegal = Juridisk informasjon
-// Test Pilot is a proper name and should not be localized.
-footerLinkAbout = Om Test Pilot
 footerLinkPrivacy = Personvern
-footerLinkTerms = Vilkår
 footerLinkCookies = Infokapsler
-requirePasswordCheckbox = Krever et passord for å laste ned denne filen
-addPasswordButton = Legg til passord
-changePasswordButton = Endre
 passwordTryAgain = Feil passord. Prøv igjen.
-// This label is followed by the password needed to download a file
-passwordResult = Passord: { $password }
-reportIPInfringement = Rapporter brudd på åndsverk
 javascriptRequired = Firefox Send krever JavaScript.
 whyJavascript = Hvorfor krever Firefox Send JavaScript?
 enableJavascript = Slå på JavaScript og prøv igjen.
-// A short representation of a countdown timer containing the number of hours and minutes remaining as digits, example "13h 47m"
+# A short representation of a countdown timer containing the number of hours and minutes remaining as digits, example "13h 47m"
 expiresHoursMinutes = { $hours }t { $minutes }m
-// A short representation of a countdown timer containing the number of minutes remaining as digits, example "56m"
+# A short representation of a countdown timer containing the number of minutes remaining as digits, example "56m"
 expiresMinutes = { $minutes }m
+# A short status message shown when the user enters a long password
+maxPasswordLength = Maksimum passordlengde: { $length }
+# A short status message shown when there was an error setting the password
+passwordSetError = Dette passordet kunne ikke settes
+
+## Send version 2 strings
+
+# Firefox Send, Send, Firefox, Mozilla are proper names and should not be localized
+-send-brand = Firefox Send
+-send-short-brand = Send
+-firefox = Firefox
+-mozilla = Mozilla
+introTitle = Enkel, privat fildeling
+introDescription = { -send-brand } lar deg dele filer via en tidsbegrenset lenke med ende-til-ende-kryptering. På den måten kan du dele filer privat og samtidig være trygg på at filene dine ikke blir liggende på nettet for alltid.
+notifyUploadEncryptDone = Filen din er kryptert og klar til å sende
+# downloadCount is from the downloadCount string and timespan is a timespanMinutes string. ex. 'Expires after 2 downloads or 25 minutes'
+archiveExpiryInfo = Utløper etter { $downloadCount } eller { $timespan }
+timespanMinutes =
+    { $num ->
+        [one] 1 minutt
+       *[other] { $num } minutter
+    }
+timespanDays =
+    { $num ->
+        [one] 1 dag
+       *[other] { $num } dager
+    }
+timespanWeeks =
+    { $num ->
+        [one] 1 uke
+       *[other] { $num } uker
+    }
+fileCount =
+    { $num ->
+        [one] 1 fil
+       *[other] { $num } filer
+    }
+# byte abbreviation
+bytes = B
+# kibibyte abbreviation
+kb = KB
+# mebibyte abbreviation
+mb = MB
+# gibibyte abbreviation
+gb = GB
+# localized number and byte abbreviation. example "2.5MB"
+fileSize = { $num }{ $units }
+# $size is the size of the file, displayed using the fileSize message as format (e.g. "2.5MB")
+totalSize = Total størrelse: { $size }
+# the next line after the colon contains a file name
+copyLinkDescription = Kopier lenken for å dele filen din:
+copyLinkButton = Kopier lenke
+downloadTitle = Last ned filer
+downloadDescription = Denne filen ble delt via { -send-brand } med ende-til-ende-kryptering og en lenke som automatisk utløper.
+trySendDescription = Prøv { -send-brand } for enkel, sikker fildeling.
+# count will always be > 10
+tooManyFiles =
+    { $count ->
+        [one] Kun 1 fil kan lastes opp om gangen.
+       *[other] Kun { $count } filer kan lastes opp om gangen.
+    }
+# count will always be > 10
+tooManyArchives =
+    { $count ->
+        [one] Kun 1 arkiv er tillatt.
+       *[other] Kun { $count } arkiver er tillatt.
+    }
+expiredTitle = Denne lenken er utløpt.
+notSupportedDescription = { -send-brand } virker ikke med denne nettleseren. { -send-short-brand } fungerer best med den nyeste versjonen av { -firefox }, og vil fungere med den nyeste versjonen av de fleste nettlesere.
+downloadFirefox = Last ned { -firefox }
+legalTitle = { -send-short-brand } Personvernerklæring
+legalDateStamp = Versjon 1.0, datert den 12. mars 2019
+# A short representation of a countdown timer containing the number of days, hours, and minutes remaining as digits, example "2d 11h 56m"
+expiresDaysHoursMinutes = { $days }d { $hours }t { $minutes }m
+addFilesButton = Velg filer du vil laste opp
+uploadButton = Last opp
+# the first part of the string 'Drag and drop files or click to send up to 1GB'
+dragAndDropFiles = Dra og slipp filer
+# the second part of the string 'Drag and drop files or click to send up to 1GB'
+# $size is the size of the file, displayed using the fileSize message as format (e.g. "2.5MB")
+orClickWithSize = eller klikk for å sende filer på opptil { $size }
+addPassword = Beskytt med passord
+emailPlaceholder = Skriv inn e-postadressen din
+# $size is the size of the file, displayed using the fileSize message as format (e.g. "2.5MB")
+signInSizeBump = Logg inn for å sende opptil { $size }
+signInOnlyButton = Logg inn
+accountBenefitTitle = Opprett en { -firefox }-konto eller logg inn
+# $size is the size of the file, displayed using the fileSize message as format (e.g. "2.5MB")
+accountBenefitLargeFiles = Del filer på opptil { $size }
+accountBenefitDownloadCount = Del filer med flere personer
+accountBenefitTimeLimit =
+    { $count ->
+        [one] Hold lenker aktiv opptil 1 dag
+       *[other] Hold lenker aktiv opptil { $count } dager
+    }
+accountBenefitSync = Behandle delte filer fra en hvilken som helst enhet
+accountBenefitMoz = Les om andre { -mozilla }-tjenester
+signOut = Logg ut
+okButton = OK
+downloadingTitle = Laster ned
+noStreamsWarning = Denne nettleseren kan kanskje ikke dekryptere en så stor fil.
+noStreamsOptionCopy = Kopier lenken for å åpne den i en annen nettleser
+noStreamsOptionFirefox = Prøv favorittnettleseren vår
+noStreamsOptionDownload = Fortsett med denne nettleseren
+downloadFirefoxPromo = { -send-short-brand } presenteres for deg av den helt nye { -firefox }.
+# the next line after the colon contains a file name
+shareLinkDescription = Del lenken til filen din:
+shareLinkButton = Del lenke
+# $name is the name of the file
+shareMessage = Last ned ‹{ $name }› med { -send-brand }: enkel, trygg fildeling
+trailheadPromo = Det finnes en måte å ta vare på personvernet ditt. Bruk Firefox.
+learnMore = Les mer.

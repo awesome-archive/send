@@ -1,9 +1,8 @@
-# Firefox Send
+# [![Firefox Send](./assets/icon.svg)](https://send.firefox.com/) Firefox Send
 
 [![CircleCI](https://img.shields.io/circleci/project/github/mozilla/send.svg)](https://circleci.com/gh/mozilla/send)
-[![Available on Test Pilot](https://img.shields.io/badge/available_on-Test_Pilot-0996F8.svg)](https://testpilot.firefox.com/experiments/send)
 
-**Docs:** [Docker](docs/docker.md), [Metrics](docs/metrics.md)
+**Docs:** [FAQ](docs/faq.md), [Encryption](docs/encryption.md), [Build](docs/build.md), [Docker](docs/docker.md), [Metrics](docs/metrics.md), [More](docs/)
 
 ---
 
@@ -17,6 +16,8 @@
 * [Localization](#localization)
 * [Contributing](#contributing)
 * [Testing](#testing)
+* [Deployment](#deployment)
+* [Android](#android)
 * [License](#license)
 
 ---
@@ -29,7 +30,7 @@ A file sharing experiment which allows you to send encrypted files to other user
 
 ## Requirements
 
-- [Node.js 8.2+](https://nodejs.org/)
+- [Node.js 10.x](https://nodejs.org/)
 - [Redis server](https://redis.io/) (optional for development)
 - [AWS S3](https://aws.amazon.com/s3/) or compatible service. (optional)
 
@@ -71,6 +72,8 @@ The server is configured with environment variables. See [server/config.js](serv
 
 Firefox Send localization is managed via [Pontoon](https://pontoon.mozilla.org/projects/test-pilot-firefox-send/), not direct pull requests to the repository. If you want to fix a typo, add a new language, or simply know more about localization, please get in touch with the [existing localization team](https://pontoon.mozilla.org/teams/) for your language or Mozilla’s [l10n-drivers](https://wiki.mozilla.org/L10n:Mozilla_Team#Mozilla_Corporation) for guidance.
 
+see also [docs/localization.md](docs/localization.md)
+
 ---
 
 ## Contributing
@@ -84,8 +87,20 @@ Pull requests are always welcome! Feel free to check out the list of ["good firs
 | ENVIRONMENT | URL
 |-------------|-----
 | Production  | <https://send.firefox.com/>
-| Stage       | <https://send.stage.mozaws.net/>
-| Development | <https://send.dev.mozaws.net/>
+| Stage       | <https://stage.send.nonprod.cloudops.mozgcp.net/>
+| Development | <https://send2.dev.lcip.org/>
+
+---
+
+## Deployment
+
+see also [docs/deployment.md](docs/deployment.md)
+
+---
+
+## Android
+
+The android implementation is contained in the `android` directory, and can be viewed locally for easy testing and editing by running `ANDROID=1 npm start` and then visiting <http://localhost:8080>. CSS and image files are located in the `android/app/src/main/assets` directory.
 
 ---
 

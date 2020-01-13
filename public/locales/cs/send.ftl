@@ -1,117 +1,200 @@
-// Firefox Send is a brand name and should not be localized.
+# Firefox Send is a brand name and should not be localized.
 title = Firefox Send
-siteSubtitle = webový experiment
 siteFeedback = Zpětná vazba
-uploadPageHeader = Soukromé a šifrované sdílení souborů
-uploadPageExplainer = Posílejte soubory přes bezpečné, soukromé a šifrované odkazy, které automaticky soubor smažou, aby nezůstal na internetu navěky.
-uploadPageLearnMore = Zjistit více
-uploadPageDropMessage = Přesunutím souboru sem spustíte jeho nahrávání
-uploadPageSizeMessage = Nahrávání funguje nejlépe pro soubory do velikosti 1 GB.
-uploadPageBrowseButton = Vybrat soubor z počítače
-uploadPageBrowseButton1 = Zvolte soubor k nahrání
-uploadPageMultipleFilesAlert = Nahrávání více souborů najednou nebo celých složek zatím není podporováno.
-uploadPageBrowseButtonTitle = Nahrát soubor
-uploadingPageProgress = Nahrávání souboru { $filename } ({ $size })
 importingFile = Probíhá import…
-verifyingFile = Probíhá ověřování…
 encryptingFile = Probíhá šifrování…
 decryptingFile = Probíhá dešifrování…
-notifyUploadDone = Nahrávání vašeho souboru bylo dokončeno.
-uploadingPageMessage = Po dokončení nahrávání můžete nastavit dobu expirace souboru.
-uploadingPageCancel = Zrušit nahrávání
-uploadCancelNotification = Nahrávání vašeho souboru bylo zrušeno.
-uploadingPageLargeFileMessage = Tento soubor je veliký a jeho nahrávání může chvíli trvat. Posaďte se na chvilku.
-uploadingFileNotification = Upozornit, až bude nahrávání dokončeno.
-uploadSuccessConfirmHeader = Připraveno k odeslání
-uploadSvgAlt = Nahrát
-uploadSuccessTimingHeader = Platnost odkazu na váš soubor vyprší po jeho prvním stažení, nebo po 24 hodinách.
-expireInfo = Platnost odkazu na váš soubor vyprší po { $downloadCount } nebo { $timespan }.
-downloadCount = { $num ->
+downloadCount =
+    { $num ->
         [one] jednom stažení
         [few] { $num } staženích
        *[other] { $num } staženích
     }
-timespanHours = { $num ->
-        [one] hodina
-        [few] hodiny
-       *[other] hodin
+timespanHours =
+    { $num ->
+        [one] hodinu
+        [few] { $num } hodiny
+       *[other] { $num } hodin
     }
-copyUrlFormLabelWithName = Zkopírujte a sdílejte odkaz na váš soubor: { $filename }
-copyUrlFormButton = Zkopírovat do schránky
 copiedUrl = Zkopírováno!
-deleteFileButton = Smazat soubor
-sendAnotherFileLink = Poslat další soubor
-// Alternative text used on the download link/button (indicates an action).
-downloadAltText = Stáhnout
-downloadsFileList = Stažení
-// Used as header in a column indicating the amount of time left before a
-// download link expires (e.g. "10h 5m")
-timeFileList = Zbývá
-// Used as header in a column indicating the number of times a file has been
-// downloaded
-downloadFileName = Stáhnout { $filename }
-downloadFileSize = ({ $size })
-unlockInputLabel = Zadejte heslo
 unlockInputPlaceholder = Heslo
 unlockButtonLabel = Odemknout
-downloadFileTitle = Stáhnout šifrovaný soubor
-// Firefox Send is a brand name and should not be localized.
-downloadMessage = Někdo vám posílá soubor pomocí služby Firefox Send, které umožňuje bezpečné, soukromé a šifrované sdílení souborů, které jsou pak automaticky smazány, aby nezůstaly na internetu navěky.
-// Text and title used on the download link/button (indicates an action).
 downloadButtonLabel = Stáhnout
-downloadNotification = Stahování bylo dokončeno.
 downloadFinish = Stahování dokončeno
-// This message is displayed when uploading or downloading a file, e.g. "(1,3 MB of 10 MB)".
 fileSizeProgress = ({ $partialSize } z { $totalSize })
-// Firefox Send is a brand name and should not be localized.
-sendYourFilesLink = Vyzkoušejte Firefox Send
-downloadingPageProgress = Stahování { $filename } ({ $size })
-downloadingPageMessage = Ponechte prosím tento panel otevřený, dokud nepřipravíme váš soubor a nedešifrujeme ho.
-errorAltText = Chyba při nahrávání souboru
+sendYourFilesLink = Vyzkoušet Firefox Send
 errorPageHeader = Nastala chyba!
-errorPageMessage = Při nahrávání souboru se vyskytl problém.
-errorPageLink = Poslat další soubor
 fileTooBig = Tento soubor je příliš veliký. Velikost nahrávaných souborů by neměla překročit { $size }.
 linkExpiredAlt = Platnost odkazu vypršela
-expiredPageHeader = Platnost tohoto odkazu buď vypršela, nebo vůbec nikdy neexistoval.
 notSupportedHeader = Váš prohlížeč není podporován.
-// Firefox Send is a brand name and should not be localized.
-notSupportedDetail = Bohužel tento prohlížeč nepodporuje technologii, kterou Firefox Send používá. Zkuste prosím jiný prohlížeč, doporučujeme Firefox!
 notSupportedLink = Proč není můj prohlížeč podporovaný?
 notSupportedOutdatedDetail = Tato verze Firefoxu bohužel nepodporuje webovou technologii, která pohání Firefox Send. Musíte aktualizovat svůj prohlížeč.
 updateFirefox = Aktualizovat Firefox
-downloadFirefoxButtonSub = Stáhnout zdarma
-uploadedFile = Soubor
-copyFileList = Kopírovat URL
-// expiryFileList is used as a column header
-expiryFileList = Platnost vyprší za
-deleteFileList = Smazat
-nevermindButton = Nevadí
-legalHeader = Podmínky a ochrana soukromí
-legalNoticeTestPilot = Firefox Send je ve fázi experimentu projektu Test Pilot a platí tak pro něj stejné <a>Podmínky používání</a> a <a>Zásady ochrany soukromí</a>. Více o tomto experimentu a sbíraných datech se dozvíte <a>zde</a>.
-legalNoticeMozilla = Používání webové služby Firefox Send se řídí <a>Zásadami ochrany soukromí</a> a <a>Podmínkami používání</a> webových stránek Mozilly.
-deletePopupText = Smazat tento soubor?
-deletePopupYes = Ano
 deletePopupCancel = Zrušit
 deleteButtonHover = Smazat
-copyUrlHover = Kopírovat URL
 footerLinkLegal = Právní informace
-// Test Pilot is a proper name and should not be localized.
-footerLinkAbout = O programu Test Pilot
 footerLinkPrivacy = Soukromí
-footerLinkTerms = Podmínky
 footerLinkCookies = Cookies
-requirePasswordCheckbox = Vyžadovat heslo pro stažení tohoto souboru
-addPasswordButton = Přidat heslo
-changePasswordButton = Změnit
 passwordTryAgain = Špatné heslo. Zkuste to znovu.
-// This label is followed by the password needed to download a file
-passwordResult = Heslo: { $password }
-reportIPInfringement = Nahlásit porušení autorských práv
 javascriptRequired = Firefox Send vyžaduje povolený JavaScript
 whyJavascript = Proč Firefox Send vyžaduje povolený JavaScript?
 enableJavascript = Povolte JavaScript a zkuste to znovu.
-// A short representation of a countdown timer containing the number of hours and minutes remaining as digits, example "13h 47m"
-expiresHoursMinutes = { $hours }h { $minutes }m
-// A short representation of a countdown timer containing the number of minutes remaining as digits, example "56m"
-expiresMinutes = { $minutes }m
+# A short representation of a countdown timer containing the number of hours and minutes remaining as digits, example "13h 47m"
+expiresHoursMinutes = { $hours } h { $minutes } m
+# A short representation of a countdown timer containing the number of minutes remaining as digits, example "56m"
+expiresMinutes = { $minutes } m
+# A short status message shown when the user enters a long password
+maxPasswordLength = Maximální délka hesla: { $length }
+# A short status message shown when there was an error setting the password
+passwordSetError = Toto heslo nemohlo být nastaveno
+
+## Send version 2 strings
+
+# Firefox Send, Send, Firefox, Mozilla are proper names and should not be localized
+-send-brand =
+    { $case ->
+       *[nom] Firefox Send
+        [gen] Firefoxu Send
+        [dat] Firefoxu Send
+        [acc] Firefox Send
+        [voc] Firefoxe Send
+        [loc] Firefoxu Send
+        [ins] Firefoxem Send
+    }
+-send-short-brand =
+    { $case ->
+       *[nom] Send
+        [gen] Sendu
+        [dat] Sendu
+        [acc] Send
+        [voc] Sende
+        [loc] Sendu
+        [ins] Sendem
+    }
+-firefox =
+    { $case ->
+       *[nom] Firefox
+        [gen] Firefoxu
+        [dat] Firefoxu
+        [acc] Firefox
+        [voc] Firefoxe
+        [loc] Firefoxu
+        [ins] Firefoxem
+    }
+-mozilla =
+    { $case ->
+       *[nom] Mozilla
+        [gen] Mozilly
+        [dat] Mozille
+        [acc] Mozillu
+        [voc] Mozillo
+        [loc] Mozille
+        [ins] Mozillou
+    }
+introTitle = Jednoduché a soukromé sdílení souborů
+introDescription = S { -send-brand(case: "ins") } jsou sdílené soubory šifrované end-to-end, takže ani my nevíme, co sdílíte. Platnost odkazů je navíc omezená. Soubory tak můžete sdílet soukromě a s jistotou, že se nezůstanou na internetu válet navždy.
+notifyUploadEncryptDone = Váš soubor je zašifrovaný a připraven k odeslání
+# downloadCount is from the downloadCount string and timespan is a timespanMinutes string. ex. 'Expires after 2 downloads or 25 minutes'
+archiveExpiryInfo = Platnost vyprší po { $downloadCount } nebo za { $timespan }
+timespanMinutes =
+    { $num ->
+        [one] jednu minutu
+        [few] { $num } minuty
+       *[other] { $num } minut
+    }
+timespanDays =
+    { $num ->
+        [one] jeden den
+        [few] { $num } dny
+       *[other] { $num } dní
+    }
+timespanWeeks =
+    { $num ->
+        [one] týden
+        [few] { $num } týdny
+       *[other] { $num } týdnů
+    }
+fileCount =
+    { $num ->
+        [one] jeden soubor
+        [few] { $num } soubory
+       *[other] { $num } souborů
+    }
+# byte abbreviation
+bytes = B
+# kibibyte abbreviation
+kb = KB
+# mebibyte abbreviation
+mb = MB
+# gibibyte abbreviation
+gb = GB
+# localized number and byte abbreviation. example "2.5MB"
+fileSize = { $num } { $units }
+# $size is the size of the file, displayed using the fileSize message as format (e.g. "2.5MB")
+totalSize = Celková velikost: { $size }
+# the next line after the colon contains a file name
+copyLinkDescription = Soubor můžete sdílet tímto odkazem:
+copyLinkButton = Zkopírovat odkaz
+downloadTitle = Stáhnout soubory
+downloadDescription = Tento soubor byl sdílen přes { -send-brand(case: "acc") } s end-to-end šifrováním a odkazem s omezenou platností.
+trySendDescription = Vyzkoušejte jednoduché a bezpečné sdílení souborů s { -send-brand(case: "ins") }
+# count will always be > 10
+tooManyFiles =
+    { $count ->
+        [one] Najednou lze nahrávat jen jeden soubor.
+        [few] Najednou lze nahrávat jen { $count } soubory.
+       *[other] Najednou lze nahrávat jen { $count } souborů.
+    }
+# count will always be > 10
+tooManyArchives =
+    { $count ->
+        [one] Povolen je nejvýše jeden archiv.
+        [few] Povoleny jsou nejvýše { $count } archivy.
+       *[other] Povoleno je nejvýše { $count } archivů.
+    }
+expiredTitle = Platnost tohoto odkazu vypršela.
+notSupportedDescription = { -send-brand } nebude v tomto prohlížeči fungovat. Nejlépe { -send-short-brand } funguje v nejnovějším { -firefox(case: "gen") } nebo aktuálních verzích nejpoužívanějších prohlížečů.
+downloadFirefox = Stáhnout { -firefox(case: "acc") }
+legalTitle = Zásady { -send-short-brand(case: "acc") } pro ochranu osobních údajů
+legalDateStamp = Verze 1.0, 12. března 2019
+# A short representation of a countdown timer containing the number of days, hours, and minutes remaining as digits, example "2d 11h 56m"
+expiresDaysHoursMinutes = { $days }d { $hours }h { $minutes }m
+addFilesButton = Vyberte soubory k nahrání
+uploadButton = Nahrát
+# the first part of the string 'Drag and drop files or click to send up to 1GB'
+dragAndDropFiles = Přetažením myší nebo kliknutím sem
+# the second part of the string 'Drag and drop files or click to send up to 1GB'
+# $size is the size of the file, displayed using the fileSize message as format (e.g. "2.5MB")
+orClickWithSize = můžete poslat až { $size }
+addPassword = Ochránit heslem
+emailPlaceholder = Zadejte svoji e-mailovou adresu
+# $size is the size of the file, displayed using the fileSize message as format (e.g. "2.5MB")
+signInSizeBump = Pro odesílání souborů o velikosti až { $size } se prosím přihlaste
+signInOnlyButton = Přihlásit se
+accountBenefitTitle = Vytvořte si účet { -firefox(case: "gen") } nebo se přihlaste
+# $size is the size of the file, displayed using the fileSize message as format (e.g. "2.5MB")
+accountBenefitLargeFiles = Sdílejte soubory o velikosti až { $size }
+accountBenefitDownloadCount = Sdílejte soubory s více lidmi
+accountBenefitTimeLimit =
+    { $count ->
+        [one] Odkazy platné až jeden den
+        [few] Odkazy platné až { $count } dny
+       *[other] Odkazy platné až { $count } dní
+    }
+accountBenefitSync = Správa sdílených souborů z jakéhokoliv zařízení
+accountBenefitMoz = Více informací o dalších službách od { -mozilla(case: "gen") }
+signOut = Odhlásit se
+okButton = OK
+downloadingTitle = Stahování
+noStreamsWarning = Dešifrování tak velikého souboru se v tomto prohlížeči nemusí podařit.
+noStreamsOptionCopy = Zkopírujte odkaz pro otevření v jiném prohlížeči
+noStreamsOptionFirefox = Vyzkoušejte náš oblíbený prohlížeč
+noStreamsOptionDownload = Pokračovat v tomto prohlížeči
+downloadFirefoxPromo = { -send-short-brand } od aplikace { -firefox }.
+# the next line after the colon contains a file name
+shareLinkDescription = Sdílet odkaz na soubor:
+shareLinkButton = Sdílet odkaz
+# $name is the name of the file
+shareMessage = Stáhněte si soubor „{ $name }“ s { -send-brand(case: "ins") } - jednoduché a bezpečné sdílení souborů
+trailheadPromo = Existuje způsob, jak ochránit své soukromí. Používejte Firefox.
+learnMore = Zjistit více.

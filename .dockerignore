@@ -1,8 +1,8 @@
-node_modules
-.git
+.circleci
+.nyc_output
+.vscode
 .DS_Store
-firefox
-assets
+coverage
 docs
-public
-test
+firefox
+node_modules

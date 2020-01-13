@@ -1,106 +1,164 @@
-// Firefox Send is a brand name and should not be localized.
+# Firefox Send is a brand name and should not be localized.
 title = Firefox Send
-siteSubtitle = un experiment web
 siteFeedback = Feedback
-uploadPageHeader = Partajare de fișiere privată și criptată
-uploadPageExplainer = Trimite fișiere printr-un link sigur, privat și criptat care expiră automat pentru ca informațiile să rămână în siguranță.
-uploadPageLearnMore = Află mai multe
-uploadPageDropMessage = Aruncă fișierul aici pentru a începe încărcarea.
-uploadPageSizeMessage = Pentru a lucra mai ușor, recomandăm să păstrezi fișierul sub 1GB
-uploadPageBrowseButton = Alege un fișier din calculator.
-uploadPageBrowseButton1 = Selectează un fișier pentru încărcare
-uploadPageMultipleFilesAlert = Încărcarea mai multor fișiere deodată sau a dosarelor nu este suportată.
-uploadPageBrowseButtonTitle = Încarcă fișier
-uploadingPageProgress = Se încarcă { $filename } ({ $size })
 importingFile = Se importă…
-verifyingFile = Se verifică...
 encryptingFile = Se criptează…
 decryptingFile = Se decriptează…
-notifyUploadDone = Încărcarea s-a finalizat.
-uploadingPageMessage = 
-uploadingPageCancel = Anulează încărcarea
-uploadCancelNotification = Încărcarea a fost anulată.
-uploadingPageLargeFileMessage = Stai calm! Acest fișier este mare. S-ar putea să dureze un timp încărcarea.
-uploadingFileNotification = Notifică-mă când încărcarea este încheiată.
-uploadSuccessConfirmHeader = Pregătit pentru trimitere
-uploadSvgAlt = Încarcă
-uploadSuccessTimingHeader = Linkul către fișierul tău va expira după 1 descărcare sau în 24 de ore.
-expireInfo = Linkul la fișier va expira după { $downloadCount } sau { $timespan }.
-downloadCount = 
-timespanHours = { $num ->
-        [one] 1 oră
-        [few] ore
-       *[other] de ore
+downloadCount =
+    { $num ->
+        [one] 1 descărcare
+        [few] { $num } descărcări
+       *[other] { $num } de descărcări
     }
-copyUrlFormLabelWithName = Copiază și împărtășește linkul de la fișierul de trimis: { $filename }
-copyUrlFormButton = Copiază în clipboard
+timespanHours =
+    { $num ->
+        [one] 1 oră
+        [few] { $num } ore
+       *[other] { $num } de ore
+    }
 copiedUrl = Copiat!
-deleteFileButton = Șterge fișierul
-sendAnotherFileLink = Trimite un alt fișier
-// Alternative text used on the download link/button (indicates an action).
-downloadAltText = Descarcă
-downloadsFileList = Descărcări
-// Used as header in a column indicating the amount of time left before a
-// download link expires (e.g. "10h 5m")
-timeFileList = Timp
-// Used as header in a column indicating the number of times a file has been
-// downloaded
-downloadFileName = Descarcă { $filename }
-downloadFileSize = ({ $size })
-unlockInputLabel = Introdu parola
 unlockInputPlaceholder = Parolă
 unlockButtonLabel = Deblochează
-downloadFileTitle = Descarcă fișierul criptat
-// Firefox Send is a brand name and should not be localized.
-downloadMessage = Un prieten îți trimite un fișier prin Firefox Send, un serviciu care îți permite să împărtășești un fișier printr-un link sigur, privat și criptat care expiră automat pentru a păstra informațiile tale online doar temporar.
-// Text and title used on the download link/button (indicates an action).
 downloadButtonLabel = Descarcă
-downloadNotification = Descărcarea s-a încheiat.
 downloadFinish = Descărcare încheiată
-// This message is displayed when uploading or downloading a file, e.g. "(1,3 MB of 10 MB)".
 fileSizeProgress = ({ $partialSize } din { $totalSize })
-// Firefox Send is a brand name and should not be localized.
 sendYourFilesLink = Încearcă Firefox Send
-downloadingPageProgress = Se descarcă { $filename } ({ $size })
-downloadingPageMessage = Te rugăm să păstrezi această file deschisă în timp ce preluăm fișierul și îl decriptăm.
-errorAltText = Eroare la încărcare
-errorPageHeader = Ceva a mers prost!
-errorPageMessage = A apărut o eroare la încărcarea fișierului.
-errorPageLink = Trimite un alt fișier
-fileTooBig = Acest fișier este prea mare. Trebuie să fie sub { $size }.
+errorPageHeader = Ceva nu a funcționat!
+fileTooBig = Acest fișier este prea mare. Ar trebuie să fie sub { $size }.
 linkExpiredAlt = Link expirat
-expiredPageHeader = Acest link a expirat sau nu a existat de la bun început!
 notSupportedHeader = Browserul tău nu este suportat.
-// Firefox Send is a brand name and should not be localized.
-notSupportedDetail = Din păcate acest browser nu suportă tehnologii web precum Firefox Send. Trebuie să încerci alt browser. Îți recomandăm Firefox!
 notSupportedLink = De ce browserul meu nu este suportat?
-notSupportedOutdatedDetail = Din păcate această versiune de Firefox nu suportă tehnologiile web din spatele Firefox Sent. Îți recomandăm să actualizezi browserul.
+notSupportedOutdatedDetail = Din păcate, această versiune de Firefox nu suportă tehnologiile web din spatele Firefox Send. Va trebui să actualizezi browserul.
 updateFirefox = Actualizează Firefox
-downloadFirefoxButtonSub = Descărcare gratuită
-uploadedFile = Fișier
-copyFileList = Copiază URL-ul
-// expiryFileList is used as a column header
-expiryFileList = Expiră în
-deleteFileList = Șterge
-nevermindButton = Uită
-legalHeader = Termeni de utilizare și politica de confidențialitate
-legalNoticeTestPilot = Firefox Send este momentan un experiment Test Pilot și supus <a>Termenilor de utilizare</a> Test Pilot și a <a>Politicii de confidențialitate</a>. Poți afla mai multe despre acest experiment <a>aici</a>.
-legalNoticeMozilla = Folosirea site-ului Firefox Send mai este supusă <a>Politicii de confidențialitate pentru site-uri web</a> și a <a>Termenilor de folosire a site-urilor web</a>.
-deletePopupText = Ștergi aceast fișier?
-deletePopupYes = Da
 deletePopupCancel = Renunță
 deleteButtonHover = Șterge
-copyUrlHover = Copiază URL-ul
 footerLinkLegal = Mențiuni legale
-// Test Pilot is a proper name and should not be localized.
-footerLinkAbout = Despre Test Pilot
 footerLinkPrivacy = Confidențialitate
-footerLinkTerms = Termeni
 footerLinkCookies = Cookie-uri
-requirePasswordCheckbox = Este necesară o parolă pentru a descărca acest fișier
-addPasswordButton = Adaugă parolă
-changePasswordButton = Modifică
-passwordTryAgain = Parola este incorectă. Încearcă din nou.
-// This label is followed by the password needed to download a file
-passwordResult = Parola: { $password }
-reportIPInfringement = Raportează încălcarea proprietății intelectuale
+passwordTryAgain = Parolă incorectă. Încearcă din nou.
+javascriptRequired = Firefox Send necesită JavaScript
+whyJavascript = De ce Firefox Send necesită JavaScript?
+enableJavascript = Te rugăm să reactivezi JavaScript și să încerci din nou.
+# A short representation of a countdown timer containing the number of hours and minutes remaining as digits, example "13h 47m"
+expiresHoursMinutes = { $hours }h { $minutes }m
+# A short representation of a countdown timer containing the number of minutes remaining as digits, example "56m"
+expiresMinutes = { $minutes }m
+# A short status message shown when the user enters a long password
+maxPasswordLength = Lungime minimă a parolei: { $length }
+# A short status message shown when there was an error setting the password
+passwordSetError = Această parolă nu a putut fi setată
+
+## Send version 2 strings
+
+# Firefox Send, Send, Firefox, Mozilla are proper names and should not be localized
+-send-brand = Firefox Send
+-send-short-brand = Send
+-firefox = Firefox
+-mozilla = Mozilla
+introTitle = Partajare de fișiere simplă și privată
+introDescription = { -send-brand } îți permite să partajezi fișiere cu criptare capăt-la-capăt și un link care expiră automat. Deci, poți păstra confidențial ceea ce partajezi și te poți asigura că ce ai partajat nu rămâne online pentru totdeauna.
+notifyUploadEncryptDone = Fișierul tău este criptat și gata de trimitere
+# downloadCount is from the downloadCount string and timespan is a timespanMinutes string. ex. 'Expires after 2 downloads or 25 minutes'
+archiveExpiryInfo = Expiră după { $downloadCount } sau { $timespan }
+timespanMinutes =
+    { $num ->
+        [one] 1 minut
+        [few] { $num } minute
+       *[other] { $num } de minute
+    }
+timespanDays =
+    { $num ->
+        [one] 1 zi
+        [few] { $num } zile
+       *[other] { $num } de zile
+    }
+timespanWeeks =
+    { $num ->
+        [one] 1 săptămână
+        [few] { $num } săptămâni
+       *[other] { $num } de săptămâni
+    }
+fileCount =
+    { $num ->
+        [one] 1 fișier
+        [few] { $num } fișiere
+       *[other] { $num } de fișiere
+    }
+# byte abbreviation
+bytes = B
+# kibibyte abbreviation
+kb = KB
+# mebibyte abbreviation
+mb = MB
+# gibibyte abbreviation
+gb = GB
+# localized number and byte abbreviation. example "2.5MB"
+fileSize = { $num }{ $units }
+# $size is the size of the file, displayed using the fileSize message as format (e.g. "2.5MB")
+totalSize = Mărime totală: { $size }
+# the next line after the colon contains a file name
+copyLinkDescription = Copiază linkul pentru partajarea fișierului:
+copyLinkButton = Copiază linkul
+downloadTitle = Descarcă fișierele
+downloadDescription = Acest fișier a fost partajat prin { -send-brand }, cu criptare capăt-la-capăt și un link care expiră automat.
+trySendDescription = Încearcă { -send-brand } pentru o partajare simplă și sigură a fișierelor.
+# count will always be > 10
+tooManyFiles =
+    { $count ->
+        [one] Numai 1 fișier poate fi încărcat simultan.
+        [few] Numai { $count } fișiere pot fi încărcate simultan.
+       *[other] Numai { $count } de fișiere pot fi încărcate simultan.
+    }
+# count will always be > 10
+tooManyArchives =
+    { $count ->
+        [one] Numai 1 arhivă este permisă.
+        [few] Numai { $count } arhive sunt permise.
+       *[other] Numai { $count } de arhive sunt permise.
+    }
+expiredTitle = Acest link a expirat.
+notSupportedDescription = { -send-brand } nu va funcționa pe acest browser. { -send-short-brand } funcționează cel mai bine cu ultima versiune de { -firefox } și va funcționa cu versiunea curentă a majorității browserelor.
+downloadFirefox = Descarcă { -firefox }
+legalTitle = Declarație de confidențialitate { -send-short-brand }
+legalDateStamp = Versiunea 1.0 din data de 12 martie 2019
+# A short representation of a countdown timer containing the number of days, hours, and minutes remaining as digits, example "2d 11h 56m"
+expiresDaysHoursMinutes = { $days }z { $hours }h { $minutes }m
+addFilesButton = Selectează fișierele pentru încărcare
+uploadButton = Încarcă
+# the first part of the string 'Drag and drop files or click to send up to 1GB'
+dragAndDropFiles = Trage și plasează fișierele
+# the second part of the string 'Drag and drop files or click to send up to 1GB'
+# $size is the size of the file, displayed using the fileSize message as format (e.g. "2.5MB")
+orClickWithSize = sau dă clic pentru a trimite până la { $size }
+addPassword = Protejează cu parolă
+emailPlaceholder = Introdu e-mailul tău
+# $size is the size of the file, displayed using the fileSize message as format (e.g. "2.5MB")
+signInSizeBump = Autentifică-te pentru a trimite până la { $size }
+signInOnlyButton = Autentificare
+accountBenefitTitle = Creează un cont { -firefox } sau autentifică-te
+# $size is the size of the file, displayed using the fileSize message as format (e.g. "2.5MB")
+accountBenefitLargeFiles = Partajează fișiere de până la { $size }
+accountBenefitDownloadCount = Partajează fișiere cu mai multe persoane
+accountBenefitTimeLimit =
+    { $count ->
+        [one] Păstrează linkurile active până la 1 zi
+        [few] Păstrează linkurile active până la { $count } zile
+       *[other] Păstrează linkurile active până la { $count } de zile
+    }
+accountBenefitSync = Gestionează fișierele partajate de pe orice dispozitiv
+accountBenefitMoz = Află despre celelalte servicii { -mozilla }
+signOut = Deconectare
+okButton = Ok
+downloadingTitle = Se descarcă
+noStreamsWarning = Este posibil ca acest browser să nu poată decripta un fișier atât de mare.
+noStreamsOptionCopy = Copiază linkul pentru a-l deschide într-un alt browser
+noStreamsOptionFirefox = Încearcă browserul nostru favorit
+noStreamsOptionDownload = Continuă cu acest browser
+downloadFirefoxPromo = { -send-short-brand } îți este adus de noul { -firefox }.
+# the next line after the colon contains a file name
+shareLinkDescription = Partajează linkul către fișier:
+shareLinkButton = Partajează linkul
+# $name is the name of the file
+shareMessage = Descarcă „{ $name }” cu { -send-brand }: partajare simplă și sigură a fișierelor
+trailheadPromo = Există o modalitate de a-ți proteja viața privată. Alătură-te Firefox.
+learnMore = Află mai multe.

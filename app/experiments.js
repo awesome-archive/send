@@ -1,38 +1,19 @@
 import hash from 'string-hash';
+import Account from './ui/account';
 
 const experiments = {
-  S9wqVl2SQ4ab2yZtqDI3Dw: {
-    id: 'S9wqVl2SQ4ab2yZtqDI3Dw',
-    run: function(variant, state, emitter) {
-      switch (variant) {
-        case 1:
-          state.promo = 'blue';
-          break;
-        case 2:
-          state.promo = 'pink';
-          break;
-        default:
-          state.promo = 'grey';
-      }
-      emitter.emit('render');
-    },
+  signin_button_color: {
     eligible: function() {
-      return (
-        !/firefox/i.test(navigator.userAgent) &&
-        document.querySelector('html').lang === 'en-US'
-      );
+      return true;
     },
-    variant: function(state) {
-      const n = this.luckyNumber(state);
-      if (n < 0.33) {
-        return 0;
-      }
-      return n < 0.66 ? 1 : 2;
+    variant: function() {
+      return ['white-blue', 'blue', 'white-violet', 'violet'][
+        Math.floor(Math.random() * 4)
+      ];
     },
-    luckyNumber: function(state) {
-      return luckyNumber(
-        `${this.id}:${state.storage.get('testpilot_ga__cid')}`
-      );
+    run: function(variant, state) {
+      const account = state.cache(Account, 'account');
+      account.buttonClass = variant;
     }
   }
 };
@@ -60,23 +41,12 @@ export default function initialize(state, emitter) {
       xp.run(+state.query.v, state, emitter);
     }
   });
-
-  if (!state.storage.get('testpilot_ga__cid')) {
-    // first ever visit. check again after cid is assigned.
-    emitter.on('DOMContentLoaded', () => {
-      checkExperiments(state, emitter);
-    });
+  const enrolled = state.storage.enrolled;
+  // single experiment per session for now
+  const id = Object.keys(enrolled)[0];
+  if (Object.keys(experiments).includes(id)) {
+    experiments[id].run(enrolled[id], state, emitter);
   } else {
-    const enrolled = state.storage.enrolled.filter(([id, variant]) => {
-      const xp = experiments[id];
-      if (xp) {
-        xp.run(variant, state, emitter);
-      }
-      return !!xp;
-    });
-    // single experiment per session for now
-    if (enrolled.length === 0) {
-      checkExperiments(state, emitter);
-    }
+    checkExperiments(state, emitter);
   }
 }
